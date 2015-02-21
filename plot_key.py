@@ -53,24 +53,4 @@ for ma in stns:
     x,y = m(lon, lat)
     plt.plot(x,y, 'o')
 plt.show()
-stop
-for m in lapse_rate_stns:
-    idx7 = np.where((m == np.asarray(data[:,0], dtype=str)) & (np.asarray(data[:,5], dtype=int) == 700))[0]
-    idx5 = np.where((m == np.asarray(data[:,0], dtype=str)) & (np.asarray(data[:,5], dtype=int) == 500))[0]
-    temp7 = data[idx7,6]
-    temp5 = data[idx5,6]
-    hght7 = data[idx7,8]
-    hght5 = data[idx5,8]
-    if len(temp7) == 0 or len(temp5) == 0 or len(hght7) == 0 or len(hght5) == 0:
-        lapse = ['--']
-    else:
-        lapse = [(float(temp5[0]) - float(temp7[0]))/(float(hght5[0]) - float(hght7[0])) * 1000.]
-    try:
-        lapse_data[m] = lapse_data[m] + lapse
-    except:
-        lapse_data[m] = lapse
-plt.tight_layout()
-plt.show()
-
-
-
+ 
